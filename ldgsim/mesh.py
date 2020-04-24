@@ -78,7 +78,7 @@ class Grid(object):
     @Q.setter
     def Q(self, value):
         three_dim = value.shape == (3, 3)
-        symmetric = np.transpose(value) == value
+        symmetric = np.all(np.transpose(value) == value)
         traceless = np.trace(value) == 0
 
         if three_dim and symmetric and traceless:
